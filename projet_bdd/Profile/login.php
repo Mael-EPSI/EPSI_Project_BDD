@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'bdd_connexion.php'; // Connexion à la base de données
+include '..\actions\bdd_connexion.php'; // Connexion à la base de données
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['username']) && isset($_POST['password'])) {

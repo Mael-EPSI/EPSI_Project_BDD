@@ -24,14 +24,13 @@ try {
             if ($stmt->rowCount() > 0) {
                 // L'utilisateur existe déjà
                 echo "Cet utilisateur existe déjà.";
+                // boutton pour revenir a l'accueil
+                echo '<a href="..\navbar.php">Retour à l\'accueil</a>';
             } else {
-                // Hachage du mot de passe
-                $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
-
                 // Préparation de la requête d'insertion
                 $stmt = $pdo->prepare("INSERT INTO user (Pseudo, Password) VALUES (:username, :password)");
                 $stmt->bindParam(':username', $user);
-                $stmt->bindParam(':password', $hashed_password);
+                $stmt->bindParam(':password', $pass);
 
                 if ($stmt->execute()) {
                     echo "Nouvel utilisateur enregistré avec succès.";
