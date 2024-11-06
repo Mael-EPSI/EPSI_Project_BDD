@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="center.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="center">
+        <img id = "logo" src="img/logo.png">
+        <p class = titre>EPSITECH</p>
+    </div>
+    <div class="center">
+        <form action="inscription.php" method="POST">
+
+            <label for="nom"> Nom :</label>
+            <input type="text" id="nom" name="nom"><br><br>
+    
+            <label for="prenom"> Prénom :</label>
+            <input type="text" id="prenom" name="prenom"><br><br>
+
+            <label for="pseudo"> Pseudo :</label>
+            <input type="text" id="pseudo" name="pseudo"><br><br>
+    
+            <label for="email"> Email :</label>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="password"> Mot de passe : </label>
+            <input type="password" id="password" name="password" minlength="6"><br><br>
+    
+            <input type="submit" value="Se Connecter">
+        </form>
+    </div>
+</body>
+</html>

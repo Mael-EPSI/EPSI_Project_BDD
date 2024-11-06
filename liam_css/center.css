@@ -1,0 +1,19 @@
+
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.blocks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.gauche {
+
+}
+
+.droite {
+
+}
