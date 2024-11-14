@@ -1,6 +1,8 @@
 # EPSI_Project_BDD
 Project_BDD_Groupe
 
+Si tu lis ça t gay
+
 
 Thomas : MAQUETTE
 Nathan : HTML
