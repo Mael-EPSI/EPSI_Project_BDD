@@ -41,6 +41,49 @@ $commandes = $stmtp->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil de l'utilisateur</title>
 </head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 600px; /* Limiter la largeur du tableau */
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 300px; /* Limiter la largeur du tableau */
+
+        .content{
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 300px; /* Limiter la largeur du tableau */
+        }    
+        }
+        td {
+            padding: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 8px;
+            background-color: #4CAF50; /* Couleur de fond pour le bouton */
+            color: white; /* Couleur du texte */
+            border: none; /* Pas de bordure */
+            cursor: pointer; /* Changement de curseur pour le bouton */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Couleur de fond lorsque la souris est dessus */
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 <body>
     <h1>Profil de <?php echo htmlspecialchars($utilisateur['Pseudo']); ?></h1>
     
