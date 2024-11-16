@@ -8,17 +8,20 @@
 
 /* Body Styling */
 body {
-    background-color: #f4f4f9;
+    background-color: #B1B5B2;
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px;
+    padding: 0px;
+    
 }
 
 /* Navbar Styling */
 navbar {
     width: 100%;
-    background-color: #333;
+    background-color: #A9AFD1;
     color: #fff;
     padding: 1rem 2rem;
     display: flex;
@@ -30,6 +33,8 @@ navbar {
     list-style-type: none;
     display: flex;
     gap: 1.5rem;
+    width:60%;
+    height:50px;
 }
 
 .navbar_list a {
@@ -41,6 +46,21 @@ navbar {
 
 .navbar_list a:hover {
     color: #ddd;
+}
+
+.link{
+    list-style-type: none;
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 40px ;
+    color: inherit;
+    text-decoration: underline 0em rgba(250, 248, 248, 0);
+    transition: text-decoration-color 300ms;    
+}
+
+.link:hover{
+    text-decoration-color: rgba(161, 205, 244, 1);
+
 }
 
 /* Logo Styling */
@@ -79,6 +99,9 @@ h1 {
 
 .produit:hover {
     transform: translateY(-5px);
+    box-shadow: 0 0 20px 5px white;
+    transition: 0.5s;
+}
 }
 
 .produit h2 {
