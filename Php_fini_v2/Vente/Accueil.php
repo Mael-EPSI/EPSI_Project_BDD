@@ -13,9 +13,9 @@
         </div>
         <div class="navbar_list">
             <ul>
-                <li><a href="Accueil.php">Accueil</a></li>
-                <li><a href="Colaborateur.php">Colaborateur</a></li>
-                <li><a href="..\Profile\Profile.php">Compte</a></li>
+                <li><a href="Accueil.php" class="link">Accueil</a></li>
+                <li><a href="Colaborateur.php" class="link">Colaborateur</a></li>
+                <li><a href="..\Profile\Profile.php" class="link">Compte</a></li>
             </ul>
         </div>
     </navbar>
