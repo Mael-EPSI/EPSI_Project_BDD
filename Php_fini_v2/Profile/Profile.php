@@ -84,14 +84,15 @@ $commandes = $stmtp->fetchAll(PDO::FETCH_ASSOC);
         }
     </style>
 <body>
+    <div class="profile>
     <h1>Profil de <?php echo htmlspecialchars($utilisateur['Pseudo'] ?? ''); ?></h1>
-    
+    <div class="information">
     <p><strong>Pseudo : </strong> <?php echo htmlspecialchars($utilisateur['Pseudo'] ?? ''); ?></p>
     <p><strong>Nom :</strong> <?php echo htmlspecialchars($utilisateur['Nom'] ?? ''); ?></p>
     <p><strong>Email :</strong> <?php echo htmlspecialchars($utilisateur['Email'] ?? ''); ?></p>
     <p><strong>Role :</strong> <?php echo htmlspecialchars($utilisateur['Role'] ?? ''); ?></p>
     <p><strong>Date de creation du compte :</strong> <?php echo htmlspecialchars($utilisateur['Date_creation'] ?? ''); ?></p>
-
+    </div>
     <?php 
     // Récupérer les informations de la dernière connexion
     $stmt2 = $pdo->prepare("SELECT * FROM log_connexions WHERE user_id = :id ORDER BY date_connexion DESC LIMIT 1");
@@ -139,5 +140,6 @@ $commandes = $stmtp->fetchAll(PDO::FETCH_ASSOC);
         <button type="submit">Logout</button>
     </form>
     <a href="../Vente/Accueil.php">Accueil</a>
+</div>
 </body>
 </html>
