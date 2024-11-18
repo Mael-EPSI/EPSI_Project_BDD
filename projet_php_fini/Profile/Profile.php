@@ -58,7 +58,10 @@ $commandes = $stmtp->fetchAll(PDO::FETCH_ASSOC);
             margin: 0 auto;
             border-collapse: collapse;
             width: 300px; /* Limiter la largeur du tableau */
-        }    
+        }   
+        
+        
+        
         }
         td {
             padding: 10px;
