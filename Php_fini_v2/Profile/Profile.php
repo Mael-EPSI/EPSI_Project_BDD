@@ -82,6 +82,30 @@ $commandes = $stmtp->fetchAll(PDO::FETCH_ASSOC);
             color: red;
             margin-top: 10px;
         }
+        .information{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            border-color: #000000;
+            display: block;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logout{
+            color: white;
+            border-radius: 5px;
+            cursor:pointer;
+    
+        }
+        
     </style>
 <body>
     <div class="profile>
