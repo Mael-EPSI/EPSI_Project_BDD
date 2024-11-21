@@ -16,6 +16,9 @@ try {
             $user = $_POST['username'];
             $pass = $_POST['password'];
 
+            // encrypted password
+            $pass = password_hash($pass, PASSWORD_DEFAULT);
+
             // Vérifiez si l'utilisateur existe déjà
             $stmt = $pdo->prepare("SELECT * FROM user WHERE Pseudo = :username");
             $stmt->bindParam(':username', $user);
@@ -24,6 +27,8 @@ try {
             if ($stmt->rowCount() > 0) {
                 // L'utilisateur existe déjà
                 echo "Cet utilisateur existe déjà.";
+                // boutton pour revenir a l'accueil
+                echo '<a href="..\navbar.php">Retour à l\'accueil</a>';
             } else {
                 // Préparation de la requête d'insertion
                 $stmt = $pdo->prepare("INSERT INTO user (Pseudo, Password) VALUES (:username, :password)");
