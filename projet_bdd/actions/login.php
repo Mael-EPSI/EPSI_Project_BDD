@@ -1,45 +1,36 @@
 <?php
-// login.php
+session_start();
+include 'bdd_connexion.php'; // Connexion à la base de données
 
-$dsn = 'mysql:host=localhost;dbname=innogears;charset=utf8';
-$username = 'root'; // Changez avec votre nom d'utilisateur MySQL
-$password = ''; // Changez avec votre mot de passe MySQL
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $user = $_POST['username'];
+        $pass = $_POST['password'];
 
-try {
-    // Création de la connexion PDO
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // Récupérer les données du formulaire
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            $user = $_POST['username'];
-            $pass = $_POST['password'];
-
-            // Préparation de la requête
+        try {
             $stmt = $pdo->prepare("SELECT * FROM user WHERE Pseudo = :username");
             $stmt->bindParam(':username', $user);
             $stmt->execute();
+            $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            // Vérification de l'utilisateur
-            if ($stmt->rowCount() > 0) {
-                $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                // Vérification du mot de passe
-                if (password_verify($pass, $row['Password'])) {
-                    echo "Connexion réussie ! Bienvenue, " . htmlspecialchars($row['Pseudo']) . "!";
-                    // Redirection vers la page d'accueil ou tableau de bord
-                    header("Location: ..\dashboard.php");
-                } else {
-                    echo "Nom d'utilisateur ou mot de passe incorrect.1";
-                }
+            if ($utilisateur && password_verify($pass, $utilisateur['Password'])) {
+                // Connexion réussie
+                $_SESSION['user_id'] = $utilisateur['Id_user'];
+
+                // Enregistrer la connexion
+                $logStmt = $pdo->prepare("INSERT INTO log_connexions (user_id) VALUES (:user_id)");
+                $logStmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+                $logStmt->execute();
+
+                header("Location: ../Profile/Profile.php");
+                exit();
             } else {
-                echo "Nom d'utilisateur ou mot de passe incorrect.2";
+                echo "Nom d'utilisateur ou mot de passe incorrect.";
             }
-        } else {
-            echo "Veuillez remplir tous les champs.";
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
         }
+    } else {
+        echo "Veuillez remplir tous les champs.";
     }
-} catch (PDOException $e) {
-    echo "Erreur de connexion : " . $e->getMessage();
 }
-?>

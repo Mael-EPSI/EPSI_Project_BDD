@@ -2,7 +2,7 @@
 $dsn = 'mysql:host=localhost;dbname=innogears;charset=utf8';
 $username = 'root'; // Changez avec votre nom d'utilisateur MySQL
 $password = ''; // Changez avec votre mot de passe MySQL
-$targetDir = "uploads/"; // Dossier où les images seront stockées
+$targetDir = "../Vente/uploads/"; // Dossier où les images seront stockées
 
 try {
     // Création de la connexion PDO
@@ -32,6 +32,7 @@ try {
 
                 if ($stmt->execute()) {
                     echo "Produit ajouté avec succès.";
+                    echo "<a href=Accueil.php>Accueil</a>";
                 } else {
                     echo "Erreur lors de l'ajout du produit.";
                 }
@@ -42,6 +43,7 @@ try {
             echo "Veuillez remplir tous les champs et choisir une image valide.";
         }
     }
+    
 } catch (PDOException $e) {
     echo "Erreur de connexion : " . $e->getMessage();
 }
